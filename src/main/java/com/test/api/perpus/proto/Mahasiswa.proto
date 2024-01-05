@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.nils.grpc;
+
+message Mahasiswa {
+    int32 nim = 1;
+    string nama = 2;
+    string jurusan = 3;
+}
+
+service MahasiswaService {
+    rpc CreateMahasiswa (Mahasiswa) returns (Mahasiswa);
+}
+
+service MahasiswaService {
+    rpc AddMahasiswa (Mahasiswa) returns (Mahasiswa);
+    rpc UpdateMahasiswa (Mahasiswa) returns (Mahasiswa);
+    rpc GetMahasiswaById (Id) returns (Mahasiswa);
+    rpc GetAllMahasiswa (Empty) returns (stream Mahasiswa);
+    rpc DeleteMahasiswaById (Id) returns (Empty);
+}
+
+message Empty {
+}

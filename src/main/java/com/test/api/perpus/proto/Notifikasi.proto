@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package Notifikasi;
+
+service NotifikasiService {
+    rpc AddNotifikasi (Notifikasi) returns (Notifikasi);
+    rpc UpdateNotifikasi (Notifikasi) returns (Notifikasi);
+    rpc GetNotifikasiById (Id) returns (Notifikasi);
+    rpc GetAllNotifikasi (Empty) returns (stream Notifikasi);
+    rpc DeleteNotifikasiById (Id) returns (Empty);
+}
+
+message Notifikasi {
+    int32 id = 1;
+    string isi = 2;
+    google.protobuf.Timestamp waktu = 3;
+}
+
+message Id {
+    int32 id = 1;
+}
+
+message Empty {
+}

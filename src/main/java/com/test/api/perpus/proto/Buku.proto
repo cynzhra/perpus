@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package Buku;
+
+service BukuService {
+    rpc AddBuku (Buku) returns (Buku);
+    rpc UpdateBuku (Buku) returns (Buku);
+    rpc GetBukuById (Id) returns (Buku);
+    rpc GetAllBuku (Empty) returns (stream Buku);
+    rpc DeleteBukuById (Id) returns (Empty);
+}
+
+message Buku {
+    int32 buku_id = 1;
+    string judul = 2;
+    string penulis = 3;
+    string kuantitas = 4;
+    string tempat_penyimpanan = 5;
+}
+
+message Id {
+    int32 id = 1;
+}
+
+message Empty {
+}

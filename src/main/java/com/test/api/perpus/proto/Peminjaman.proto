@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package Peminjaman;
+
+service PeminjamanService {
+    rpc AddPeminjaman (Peminjaman) returns (Peminjaman);
+    rpc UpdatePeminjaman (Peminjaman) returns (Peminjaman);
+    rpc GetPeminjamanById (Id) returns (Peminjaman);
+    rpc GetAllPeminjaman (Empty) returns (stream Peminjaman);
+    rpc DeletePeminjamanById (Id) returns (Empty);
+}
+
+message Peminjaman {
+    int32 id = 1;
+    int32 nim = 2;
+    int32 buku_id = 3;
+    google.protobuf.Timestamp tanggal_peminjaman = 4;
+    google.protobuf.Timestamp batas_pengembalian = 5;
+    google.protobuf.Timestamp tanggal_pengembalian = 6;
+}
+
+message Id {
+    int32 id = 1;
+}
+
+message Empty {
+}
